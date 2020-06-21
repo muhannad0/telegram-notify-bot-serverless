@@ -8,7 +8,7 @@ A simple NodeJS Telegram bot using the Serverless Framework.
 
 ## Requirements
 + AWS credentials [configured](https://serverless.com/framework/docs/providers/aws/guide/credentials/).
-+ NodeJS 12.x.
++ [NodeJS](https://nodejs.org/) 12.x.
 + A [Telegram](https://telegram.org/) account.
 
 ## Installation
@@ -23,11 +23,11 @@ npm install -g serverless
 npm install
 ```
 
-+ Create a [Telegram bot](https://core.telegram.org/bots#3-how-do-i-create-a-bot) using `@BotFather`
++ Create a [Telegram bot](https://core.telegram.org/bots#3-how-do-i-create-a-bot) using [@BotFather](https://telegram.me/BotFather).
 
 + Add the token received to `serverless.env.yml` file
 ```
-vi serverless.env.yml
+cat serverless.env.yml
 
 TELEGRAM_TOKEN: <your_token>
 ```
