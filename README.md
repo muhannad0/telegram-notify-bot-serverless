@@ -45,5 +45,12 @@ curl -X POST https://<api_endpoint_url>/prod/setWebhook
 ## Usage
 Now you can `/start` a conversation with the bot.
 
+## Removal
++ To delete the project from AWS.
+```
+serverless remove
+```
+
 ## Acknowledgements
 + [Serverless Telegram Bot - Python Example](https://github.com/serverless/examples/tree/master/aws-python-telegram-bot)
++ [Telegram notifications bot with Firebase Cloud Functions](https://medium.com/@maail/telegram-notifications-bot-with-firebase-cloud-functions-4d88fd88cd78)
