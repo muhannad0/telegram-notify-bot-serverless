@@ -30,15 +30,10 @@ module.exports.hello = async event => {
 
     bot.command('whoami', (ctx) => {
       return ctx.reply(
-        'Name: ' + body.message.chat.first_name +
-        '\nUsername: ' + body.message.chat.username +
-        '\nChat ID: ' + body.message.chat.id);
+        'Name: ' + ctx.from.first_name +
+        '\nUsername: ' + ctx.from.username +
+        '\nChat ID: ' + ctx.from.id);
     })
-
-    // bot.on('message', (ctx) => {
-    //   console.log(ctx.message);
-    //   return ctx.reply(body.message.text);
-    // });
 
     await bot.handleUpdate(body);
 
