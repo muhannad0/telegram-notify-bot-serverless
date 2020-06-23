@@ -1,6 +1,6 @@
 'use strict';
 
-const botService = require('./bot.js');
+const { bot } = require('./bot.js');
 
 const getResponseHeaders = () => {
   return {
@@ -14,7 +14,7 @@ module.exports.hello = async event => {
     const body = JSON.parse(event.body);
     console.log(body);
 
-    await botService.bot.handleUpdate(body);
+    await bot.handleUpdate(body);
 
     return {
       statusCode: 200,
@@ -44,7 +44,7 @@ module.exports.setWebhook = async event => {
 
       let url = 'https://' + event.headers.Host + '/' + event.requestContext.stage + '/webhook';
 
-      await botService.bot.telegram.setWebhook(url);
+      await bot.telegram.setWebhook(url);
 
       return {
           statusCode: 200,
