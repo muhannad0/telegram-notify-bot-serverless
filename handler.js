@@ -2,9 +2,6 @@
 
 const { bot } = require('./bot.js');
 
-// bot.telegram.deleteWebhook();
-// bot.launch();
-
 const getResponseHeaders = () => {
   return {
       'Access-Control-Allow-Origin': '*'
