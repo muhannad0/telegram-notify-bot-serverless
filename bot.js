@@ -1,6 +1,6 @@
-const Telegraf = require('telegraf')
+const { Telegraf } = require('telegraf');
 
-const bot = new Telegraf(process.env.BOT_TOKEN)
+const bot = new Telegraf(process.env.BOT_TOKEN);
 
 const helpMsg = `The bot just repeats anything you say in the chat.
 \n*Command reference:*
