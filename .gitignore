@@ -1,9 +1,33 @@
-# package directories
-node_modules
-jspm_packages
+# Logs
+logs
+*.log
+npm-debug.log*
 
-# Serverless directories
-.serverless
+# Dependencies
+node_modules/
 
-# Token file
-serverless.env.yml
+# Coverage
+coverage
+
+# Transpiled files
+build/
+dist/
+
+# VS Code
+.vscode
+!.vscode/tasks.js
+
+# JetBrains IDEs
+.idea/
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Misc
+.DS_Store
+
+# Config
+.env

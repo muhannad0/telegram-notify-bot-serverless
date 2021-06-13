@@ -1,0 +1,4 @@
+config:
+  aws:region: us-east-1
+  telegram-notify-bot-serverles:tgBotToken:
+    secure: AAABAErCg36Iv1jHbnOUA91PFoXUB9SCT/5ByGp4hRl2LV88z2Qkk36wSwV7qf2rPXHm5CQ4A2o8wrFkWNMFU4MzxBbv8JOlNUT1GWVn
