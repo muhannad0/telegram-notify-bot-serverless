@@ -1,56 +1,86 @@
 # Serverless Telegram Bot on AWS
 
-A simple NodeJS Telegram bot using the Serverless Framework.
+A NodeJS Telegram bot deployed using Pulumi.
 
 ## Frameworks Used
-+ [Serverless Framework](https://www.serverless.com/framework/docs/getting-started/)
-+ [Telegraf Bot Framework](https://telegraf.js.org/)
+
+- [Telegraf Bot Framework](https://telegraf.js.org/)
+- [Pulumi](https://pulumi.com/)
 
 ## Requirements
-+ AWS credentials [configured](https://serverless.com/framework/docs/providers/aws/guide/credentials/).
-+ [NodeJS](https://nodejs.org/) 12.x.
-+ A [Telegram](https://telegram.org/) account.
+
+- Pulumi [configured](https://www.pulumi.com/docs/get-started/aws/).
+- A [Telegram](https://telegram.org/) account.
 
 ## Installation
 
-+ Install the Serverless Framework
-```
-npm install -g serverless
-```
+- Install Pulumi.
 
-+ Install the required plugins
+- Install the required dependencies.
+
 ```
 npm install
 ```
 
-+ Create a [Telegram bot](https://core.telegram.org/bots#3-how-do-i-create-a-bot) using [@BotFather](https://telegram.me/BotFather).
+- Build the Lambda functions.
 
-+ Add the token received to `serverless.env.yml` file
 ```
-cat serverless.env.yml
-
-TELEGRAM_TOKEN: <your_token>
+npm run build
 ```
 
-+ Deploy the application.
+- Create a [Telegram bot](https://core.telegram.org/bots#3-how-do-i-create-a-bot) using [@BotFather](https://telegram.me/BotFather).
+
+- Create a new Pulumi stack.
+
 ```
-serverless deploy
+pulumi stack init <stack_name>
 ```
 
-+ Using `setWebhook` URL the configuration, register the webhook on Telegram
+- Configure the AWS region you want to deploy into.
+
 ```
-curl -X POST https://<api_endpoint_url>/prod/setWebhook
+pulumi config set aws:region <aws_region>
+```
+
+- Add the Telegram Bot token received as a secret to Pulumi config
+
+```
+pulumi config set tgBotToken <your_token> --secret
+```
+
+- Deploy the application.
+
+```
+pulumi up
+```
+
+- You can check the bot's status with the `/health` endpoint.
+
+```
+curl $(pulumi stack output apiUrl)/health
+```
+
+- Using `set-webhook` endpoint, register the bot's webhook on Telegram
+
+```
+curl -X POST $(pulumi stack output apiUrl)/set-webhook
 ```
 
 ## Usage
+
 Now you can `/start` a conversation with the bot.
 
 ## Removal
-+ To delete the project from AWS.
+
+- To delete the project from AWS.
+
 ```
-serverless remove
+pulumi destroy
 ```
 
+- Talk to [@BotFather](https://telegram.me/BotFather) to delete the bot.
+
 ## Acknowledgements
-+ [Serverless Telegram Bot - Python Example](https://github.com/serverless/examples/tree/master/aws-python-telegram-bot)
-+ [Telegram notifications bot with Firebase Cloud Functions](https://medium.com/@maail/telegram-notifications-bot-with-firebase-cloud-functions-4d88fd88cd78)
+
+- [Serverless Telegram Bot - Python Example](https://github.com/serverless/examples/tree/master/aws-python-telegram-bot)
+- [Telegram notifications bot with Firebase Cloud Functions](https://medium.com/@maail/telegram-notifications-bot-with-firebase-cloud-functions-4d88fd88cd78)

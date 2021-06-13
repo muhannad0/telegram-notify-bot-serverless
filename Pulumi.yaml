@@ -1,0 +1,4 @@
+name: telegram-notify-bot-serverles
+runtime: nodejs
+description: telegram bot running on AWS serverless services
+main: ./src/index.ts
